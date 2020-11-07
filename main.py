@@ -1,3 +1,8 @@
+"""
+Created on Fri Nov  6 13:04:22 2020
+
+@author: shubham
+"""
 # Need to install 3 packages -
 # 1. 'GoogleMaps' - for using requests
 # 2. 'geopy' - used for calculating distance b/w 2 locations
@@ -53,9 +58,10 @@ gmap = gmplot.GoogleMapPlotter(12.95396, 77.4908527, 14, apikey=apikey)
 # Mark a hidden gem:
 gmap.marker(loc2[0], loc2[1], color='blue')
 
+#Marking all given locations
 gmap.scatter(attractions_lats, attractions_lngs, color='red', size=400, marker=True)
 
-# Outline the Line between nearest point:
+# Creating a line between nearest point:
 line = zip(*[
     loc2,
     (lat, lng)
@@ -64,5 +70,5 @@ line = zip(*[
 gmap.polygon(*line, color='cyan', edge_width=5)
 
 # Draw the map to an HTML file (will be saved in same directory as the main file)
-# Can be used to view all the locations and shortest distance found
+# Can be used to view all the locations and shortest distance found above
 gmap.draw('map.html')
